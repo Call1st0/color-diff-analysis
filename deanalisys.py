@@ -1,4 +1,4 @@
-""" script for callculating mean color difference between two images
+""" script for calculating mean color difference between two images
         author: Ante Poljicak
         email: ante.poljicak@gmail.com
         version: 0.2 
@@ -24,7 +24,7 @@ print(dirlist)
 # Open excel file for writing
 with pd.ExcelWriter("rezultati.xlsx") as writer:
 
-    for dir_num in range(25): # Number of directories with images 
+    for dir_num in range(25):  # Number of directories with images
         # set current dir
         current_dir = os.path.abspath(root + "/" + dirlist[dir_num])
         print(os.path.abspath(current_dir))
@@ -94,11 +94,9 @@ with pd.ExcelWriter("rezultati.xlsx") as writer:
         # print(all_result)
 
         # create dataframe
-        metrics = ["dE", "dE2000", "dL", "da","db", "dC", "dH"]
+        metrics = ["dE", "dE2000", "dL", "da", "db", "dC", "dH"]
         df = pd.DataFrame(all_result.tolist(), index=orig_file_list, columns=metrics)
         print(df)
 
         df.to_excel(writer, sheet_name=dirlist[dir_num])
-
-
 
